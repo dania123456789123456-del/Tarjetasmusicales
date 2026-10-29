@@ -1,0 +1,59 @@
+{
+  "estadoFinal": { "mensaje": "Gracias por escuchar nuestra historia ❤️" },
+  "canciones": [
+    {
+      "id": "nuestro-primer-mes",
+      "titulo": "Nuestro primer mes",
+      "artista": "Nuestra historia",
+      "portada": "imagenes/portada-primer-mes.jpg",
+      "audio": "canciones/nuestro-primer-mes.mp3",
+      "fondo": "fondos/estrellas.html",
+      "tarjetas": [
+        { "id": "tarjeta-01", "tiempo": 0, "imagen": "imagenes/tarjeta-01.jpg", "transicionEntrada": "fade", "transicionSalida": "fade", "duracionEntrada": 800, "duracionSalida": 800 },
+        { "id": "tarjeta-02", "tiempo": 12, "imagen": "imagenes/tarjeta-02.jpg", "transicionEntrada": "zoom", "transicionSalida": "fade", "duracionEntrada": 1000, "duracionSalida": 800 },
+        { "id": "tarjeta-03", "tiempo": 24, "imagen": "imagenes/tarjeta-03.jpg", "transicionEntrada": "rise", "transicionSalida": "fade", "duracionEntrada": 900, "duracionSalida": 700 },
+        { "id": "tarjeta-04", "tiempo": 38, "imagen": "imagenes/tarjeta-04.jpg", "transicionEntrada": "fade", "transicionSalida": "zoom", "duracionEntrada": 800, "duracionSalida": 800 },
+        { "id": "tarjeta-05", "tiempo": 50, "imagen": "imagenes/tarjeta-05.jpg", "transicionEntrada": "zoom", "transicionSalida": "fade", "duracionEntrada": 1200, "duracionSalida": 800 },
+        { "id": "tarjeta-06", "tiempo": 62, "imagen": "imagenes/tarjeta-06.jpg", "transicionEntrada": "fade", "transicionSalida": "fade", "duracionEntrada": 1200, "duracionSalida": 800 }
+      ]
+    },
+    {
+      "id": "flores-amarillas",
+      "titulo": "Flores amarillas",
+      "artista": "Para ti",
+      "portada": "imagenes/portada-flores-amarillas.jpg",
+      "audio": "canciones/flores-amarillas.mp3",
+      "fondo": "fondos/flores.html",
+      "tarjetas": [
+        { "id": "f-01", "tiempo": 0, "imagen": "imagenes/tarjeta-03.jpg", "transicionEntrada": "fade", "transicionSalida": "fade", "duracionEntrada": 800, "duracionSalida": 800 },
+        { "id": "f-02", "tiempo": 20, "imagen": "imagenes/tarjeta-04.jpg", "transicionEntrada": "zoom", "transicionSalida": "fade", "duracionEntrada": 1000, "duracionSalida": 800 },
+        { "id": "f-03", "tiempo": 45, "imagen": "imagenes/tarjeta-06.jpg", "transicionEntrada": "fade", "transicionSalida": "fade", "duracionEntrada": 800, "duracionSalida": 800 }
+      ]
+    },
+    {
+      "id": "nuestra-cancion",
+      "titulo": "Nuestra canción",
+      "artista": "Tú y yo",
+      "portada": "imagenes/portada-nuestra-cancion.jpg",
+      "audio": "canciones/nuestra-cancion.mp3",
+      "fondo": "fondos/corazones.html",
+      "tarjetas": [
+        { "id": "n-01", "tiempo": 0, "imagen": "imagenes/tarjeta-05.jpg", "transicionEntrada": "fade", "transicionSalida": "fade", "duracionEntrada": 800, "duracionSalida": 800 },
+        { "id": "n-02", "tiempo": 25, "imagen": "imagenes/tarjeta-01.jpg", "transicionEntrada": "rise", "transicionSalida": "fade", "duracionEntrada": 900, "duracionSalida": 800 },
+        { "id": "n-03", "tiempo": 50, "imagen": "imagenes/tarjeta-06.jpg", "transicionEntrada": "zoom", "transicionSalida": "fade", "duracionEntrada": 1000, "duracionSalida": 800 }
+      ]
+    },
+    {
+      "id": "para-ti-mi-amor",
+      "titulo": "Para ti, mi amor",
+      "artista": "Con todo mi corazón",
+      "portada": "imagenes/portada-para-ti.jpg",
+      "audio": "canciones/para-ti.mp3",
+      "fondo": "fondos/galaxia.html",
+      "tarjetas": [
+        { "id": "p-01", "tiempo": 0, "imagen": "imagenes/tarjeta-02.jpg", "transicionEntrada": "fade", "transicionSalida": "fade", "duracionEntrada": 800, "duracionSalida": 800 },
+        { "id": "p-02", "tiempo": 30, "imagen": "imagenes/tarjeta-06.jpg", "transicionEntrada": "zoom", "transicionSalida": "fade", "duracionEntrada": 1200, "duracionSalida": 800 }
+      ]
+    }
+  ]
+}

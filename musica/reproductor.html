@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#09060f" />
+  <title>Reproductor ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Outfit:wght@300;400;500;600&display=swap" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body class="pagina-player">
+  <div class="escena" id="escena">
+    <!-- CAPA 0: luz ambiental con los colores de la portada -->
+    <div class="fondo-portada" id="fondoPortada"></div>
+    <div class="velo"></div>
+
+    <!-- CAPA 1: fondo animado independiente (iframe a fondos/*.html) -->
+    <div class="capa-fondo" id="capaFondo" hidden></div>
+
+    <!-- CAPA 2: tarjetitas (imágenes completas, sin recortar) -->
+    <div class="tarjetas" id="tarjetas">
+      <div class="marco" id="marco">
+        <img id="imgA" alt="" /><img id="imgB" alt="" />
+        <div class="final" id="final">
+          <p id="finalMsg">❤️</p>
+          <button type="button" class="btn btn-rosa" id="otraVez">Escuchar otra vez</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAPA 3: controles -->
+    <div class="top">
+      <a class="btn solo-player" href="biblioteca.html">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>Biblioteca
+      </a>
+      <button type="button" class="btn solo-tarjetas" id="volver">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>Volver al reproductor
+      </button>
+      <button type="button" class="btn btn-icon solo-tarjetas" data-fs aria-label="Pantalla completa" title="Pantalla completa">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+      </button>
+    </div>
+
+    <section class="player" id="player" aria-label="Reproductor">
+      <div class="panel">
+        <div class="cover-wrap" id="coverWrap"><img id="cover" alt="" /></div>
+
+        <div class="meta">
+          <div class="cabeza">
+            <div class="eyebrow"><span class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="estado">Cargando…</span></div>
+            <h1 id="titulo">Cargando…</h1>
+            <div class="artist" id="artista"></div>
+            <div class="error" id="error" role="alert"></div>
+          </div>
+
+          <div class="progreso">
+            <input type="range" class="barra" id="barra" min="0" max="1000" value="0" aria-label="Progreso de la canción" />
+            <div class="tiempos"><span id="actual">0:00</span><span id="total">–:––</span></div>
+          </div>
+
+          <div class="controles">
+            <div class="ctl-izq">
+              <button type="button" class="ib" id="repetir" aria-pressed="false" aria-label="Repetir canción" title="Repetir">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+              </button>
+            </div>
+            <div class="ctl-centro">
+              <button type="button" class="ib" id="atras" aria-label="Retroceder 10 segundos" title="Retroceder 10 s">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8z"/></svg><small>10</small>
+              </button>
+              <button type="button" class="pp" id="pp" aria-label="Reproducir"></button>
+              <button type="button" class="ib" id="adelante" aria-label="Adelantar 10 segundos" title="Adelantar 10 s">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1l5 5-5 5V7a6 6 0 1 0 6 6h2a8 8 0 1 1-8-8z"/></svg><small>10</small>
+              </button>
+            </div>
+            <div class="ctl-der">
+              <button type="button" class="ib" id="reiniciar" aria-label="Volver al inicio" title="Desde el inicio">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="pastilla">
+            <div class="volumen" id="volBox">
+              <button type="button" class="ib" id="mute" aria-label="Silenciar" title="Silenciar"></button>
+              <input type="range" class="barra fina" id="vol" min="0" max="100" value="90" aria-label="Volumen" />
+            </div>
+            <button type="button" class="btn btn-rosa" id="verTarjetas">Ver tarjetitas ❤️</button>
+            <button type="button" class="ib" data-fs aria-label="Pantalla completa" title="Pantalla completa">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="mini glass">
+      <button type="button" class="pp" id="pp2" aria-label="Reproducir"></button>
+      <span class="t" id="actual2">0:00</span>
+      <input type="range" class="barra" id="barra2" min="0" max="1000" value="0" aria-label="Progreso de la canción" />
+      <span class="t" id="total2">–:––</span>
+    </div>
+  </div>
+
+  <audio id="audio" preload="metadata"></audio>
+  <script src="comun.js"></script>
+  <script src="reproductor.js"></script>
+</body>
+</html>

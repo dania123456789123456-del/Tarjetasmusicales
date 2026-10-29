@@ -1,0 +1,10 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fondo: flores</title>
+<style>html,body{margin:0;height:100%;overflow:hidden;background:#0d0a03}canvas{display:block;width:100%;height:100%}</style></head><body><canvas id="c"></canvas>
+<script>
+const c=document.getElementById('c'),x=c.getContext('2d');let W,H,P=[];const D=Math.min(devicePixelRatio||1,2);
+function rs(){W=c.width=innerWidth*D;H=c.height=innerHeight*D;P=Array.from({length:60},()=>mk(true))}
+function mk(any){return{x:Math.random()*W,y:any?Math.random()*H:H+20*D,r:(Math.random()*6+3)*D,v:(Math.random()*.5+.2)*D,a:Math.random()*6.28,h:40+Math.random()*20}}
+function heart(px,py,s){x.beginPath();x.moveTo(px,py+s*.3);x.bezierCurveTo(px,py,px-s*.5,py,px-s*.5,py+s*.3);x.bezierCurveTo(px-s*.5,py+s*.6,px,py+s*.8,px,py+s);x.bezierCurveTo(px,py+s*.8,px+s*.5,py+s*.6,px+s*.5,py+s*.3);x.bezierCurveTo(px+s*.5,py,px,py,px,py+s*.3);x.fill()}
+function f(t){x.fillStyle='rgba(13,10,3,.25)';x.fillRect(0,0,W,H);for(const p of P){p.y-=p.v*.6;p.a+=.015;x.save();x.translate(p.x+Math.sin(p.a)*30*D,p.y);x.rotate(p.a);x.globalAlpha=.6;x.fillStyle='hsl('+p.h+',95%,60%)';for(let k=0;k<5;k++){x.rotate(1.2566);x.beginPath();x.ellipse(0,p.r,p.r*.6,p.r,0,0,6.28);x.fill()}x.restore();if(p.y<-40*D)Object.assign(p,mk(false));}requestAnimationFrame(f)}
+addEventListener('resize',rs);rs();requestAnimationFrame(f);
+</script></body></html>
